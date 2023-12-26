@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+	<meta charset="UTF-8">
 	<style>
 		body{margin:0;padding:0;overflow: hidden;}
 		.city{width:100%;position:fixed;bottom: 0px;z-index: 100;}
@@ -17,15 +17,15 @@
 	<div class="city"><img src="img/city.png" alt="" /></div>
 	<img src="img/moon.png" alt="" id="moon" style="visibility: hidden;"/>
 	<div style="display:none">
-		<div class="shape">新年快乐</div>
+		<div class="shape">新春快乐</div>
 		<div class="shape">合家幸福</div>
         <div class="shape">万事如意</div>
         <div class="shape">心想事成</div>
         <div class="shape">财源广进</div>
 	</div>
-	
+
 </div>
-	
+
 	<script>
 		var canvas = document.getElementById("cas");
 		var ocas = document.createElement("canvas");
@@ -34,7 +34,7 @@
 		ocas.width = canvas.width = window.innerWidth;
 		ocas.height = canvas.height = 700;
 		var bigbooms = [];
-	
+
 		window.onload = function(){
 			initAnimate()
 		}
@@ -55,7 +55,7 @@
 
 
 			var newTime = new Date();
-            if(newTime-lastTime>500+(window.innerHeight-767)/2){
+            if(newTime-lastTime>100+(window.innerHeight-767)/2){
 				var random = Math.random()*100>2?true:false;
 				var x = getRandom(canvas.width/5 , canvas.width*4/5);
 				var y = getRandom(50 , 200);
@@ -94,7 +94,7 @@
 					})
 				}
 			});
-			
+
 			raf(animate);
 		}
 
@@ -119,7 +119,7 @@
 				ctx.fill();
 				ctx.restore();
 			}
-			
+
 		}
 
 		Array.prototype.foreach = function(callback){
@@ -129,7 +129,7 @@
 		}
 
 		var raf = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) { window.setTimeout(callback, 1000 / 60); };
- 		
+
 		canvas.onclick = function(){
 			var x = event.clientX;
 			var y = event.clientY;
@@ -213,7 +213,7 @@
 					}
 					var a = getRandom(-Math.PI, Math.PI);
 					var x = getRandom(0, fanwei) * Math.cos(a) + this.x;
-					var y = getRandom(0, fanwei) * Math.sin(a) + this.y; 
+					var y = getRandom(0, fanwei) * Math.sin(a) + this.y;
 					var radius = getRandom(0 , 2)
 					var frag = new Frag(this.x , this.y , radius , color , x , y );
 					this.booms.push(frag);
